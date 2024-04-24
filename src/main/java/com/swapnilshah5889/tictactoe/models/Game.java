@@ -55,6 +55,10 @@ public class Game {
         this.nextPlayerIndex = nextPlayerIndex;
     }
 
+    public static Builder getBuilder() {
+        return new Builder();
+    }
+
     public static class Builder {
         private int dimension;
         private List<Player> players;

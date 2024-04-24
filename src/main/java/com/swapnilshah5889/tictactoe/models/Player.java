@@ -5,6 +5,16 @@ public class Player {
     private String name;
     private PlayerType type;
 
+    public Player(String name, char symbol) {
+        this(name, symbol, PlayerType.HUMAN);
+    }
+
+    protected Player(String name, char symbol, PlayerType type) {
+        this.name = name;
+        this.symbol = symbol;
+        this.type = type;
+    }
+
     public char getSymbol() {
         return symbol;
     }
