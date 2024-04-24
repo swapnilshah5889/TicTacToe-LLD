@@ -1,10 +1,16 @@
-package com.scaler.tictactoe.models;
+package com.swapnilshah5889.tictactoe.models;
 
 public class Cell {
     private Player player;
     private int row;
     private int col;
     private CellState cellState;
+
+    public Cell(int i, int j) {
+        this.row = i;
+        this.col = j;
+        this.cellState = CellState.EMPTY;
+    }
 
     public Player getPlayer() {
         return player;

@@ -1,4 +1,4 @@
-package com.scaler.tictactoe.models;
+package com.swapnilshah5889.tictactoe.models;
 
 public enum CellState {
     EMPTY,
