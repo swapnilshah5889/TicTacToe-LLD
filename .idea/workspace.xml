@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e42f9770-bc20-47cc-9d05-6970a45b3497" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/factories/BotPlayingStrategyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/strategies/botplayingstrategy/RandomBotPlayingStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/strategies/gamewinningstrategy/OrderOneWinningStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/strategies/gamewinningstrategy/OrderOneWinningStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/models/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/models/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/strategies/botplayingstrategy/BotPlayingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/swapnilshah5889/tictactoe/strategies/botplayingstrategy/BotPlayingStrategy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
