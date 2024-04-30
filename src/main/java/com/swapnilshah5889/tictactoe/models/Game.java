@@ -73,6 +73,29 @@ public class Game {
         }
     }
 
+    public void makeNextMove() {
+        // Player to move next
+        Player player = players.get(nextPlayerIndex);
+
+        // Move that the player wants to make
+        Move move = player.decideMove(board);
+
+        // Game must validate if the move is possible -> TODO
+
+        // Assign the this player to the cell in the board
+        board.getBoard().get(move.getCell().getRow())
+                .get(move.getCell().getCol())
+                .setPlayer(player);
+        board.getBoard().get(move.getCell().getRow())
+                .get(move.getCell().getCol())
+                .setCellState(CellState.FILLED);
+
+        // Cyclic increment of next player
+        nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
+
+        // Check if the player wins - Winning strategy -> TODO
+    }
+
     public static class Builder {
         private int dimension;
         private List<Player> players;

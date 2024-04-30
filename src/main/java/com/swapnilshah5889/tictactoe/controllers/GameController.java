@@ -28,4 +28,8 @@ public class GameController {
     public GameStatus getGameStatus(Game game) {
         return game.getGameStatus();
     }
+
+    public void makeNextMove(Game game) {
+        game.makeNextMove();
+    }
 }
