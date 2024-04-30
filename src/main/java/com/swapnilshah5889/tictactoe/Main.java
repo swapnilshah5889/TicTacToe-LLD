@@ -58,6 +58,7 @@ public class Main {
             while(game.getGameStatus().equals(GameStatus.IN_PROGRESS)) {
                 System.out.println("Current Board: ");
                 gameController.displayBoard(game);
+                System.out.println("Current Turn: "+gameController.getCurrentPlayer(game));
                 System.out.println("Do you want to undo? (y/n): ");
                 String undo = sc.next().toLowerCase();
 

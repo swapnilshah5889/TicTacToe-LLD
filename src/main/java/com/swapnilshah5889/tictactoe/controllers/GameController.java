@@ -36,4 +36,8 @@ public class GameController {
     public String getWinner(Game game) {
         return game.getWinner().getName() + " ("+game.getWinner().getSymbol()+")";
     }
+
+    public String getCurrentPlayer(Game game) {
+        return game.getPlayers().get(game.getNextPlayerIndex()).getName();
+    }
 }

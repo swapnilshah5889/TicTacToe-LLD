@@ -93,6 +93,27 @@ public class Game {
         }
     }
 
+    private boolean isMoveValid(Move nextMove) {
+
+        int row = nextMove.getCell().getRow();
+        int col = nextMove.getCell().getCol();
+        int dimension = getBoard().getBoard().size();
+
+        // The cell row and column must be valid
+        if(row < 0 || row >= dimension || col < 0 || col >= dimension) {
+            System.out.println("Invalid cell, please choose another!");
+            return false;
+        }
+
+        // If cell already occupied - return
+        if(board.getBoard().get(row).get(col).getCellState().equals(CellState.FILLED)) {
+            System.out.println("Cell already filled, make another move!");
+            return false;
+        }
+
+        return true;
+    }
+
     public void makeNextMove() {
         // Player to move next
         Player player = players.get(nextPlayerIndex);
@@ -100,14 +121,21 @@ public class Game {
         // Move that the player wants to make
         Move move = player.decideMove(board);
 
-        // Game must validate if the move is possible -> TODO
+        // Game must validate if the move is possible ->
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+
+        // If cell already occupied - return
+        if(!isMoveValid(move)) {
+            return;
+        }
 
         // Assign the this player to the cell in the board
-        board.getBoard().get(move.getCell().getRow())
-                .get(move.getCell().getCol())
+        board.getBoard().get(row)
+                .get(col)
                 .setPlayer(player);
-        board.getBoard().get(move.getCell().getRow())
-                .get(move.getCell().getCol())
+        board.getBoard().get(row)
+                .get(col)
                 .setCellState(CellState.FILLED);
 
         // Check if the player won

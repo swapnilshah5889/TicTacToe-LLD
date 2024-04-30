@@ -42,8 +42,9 @@ public class OrderOneWinningStrategy implements  GameWinningStrategy{
         if(row == col) {
             topLeftMap.put(symbol, topLeftMap.getOrDefault(symbol, 0) + 1);
         }
+
         // Update top right diagonal
-        else if(row + col == dimension-1) {
+        if(row + col == dimension-1) {
             topRightMap.put(symbol, topRightMap.getOrDefault(symbol, 0) + 1);
         }
 
@@ -62,7 +63,7 @@ public class OrderOneWinningStrategy implements  GameWinningStrategy{
             return true;
         }
         // Check if top right diagonal has same symbols
-        else if(row + col == dimension - 1 && topRightMap.get(symbol) == dimension) {
+        else if ( row + col == dimension - 1 && topRightMap.get(symbol) == dimension) {
             return true;
         }
 
