@@ -1,6 +1,8 @@
 package com.swapnilshah5889.tictactoe.models;
 
 import com.swapnilshah5889.tictactoe.Exceptions.InvalidGameBuildingException;
+import com.swapnilshah5889.tictactoe.strategies.gamewinningstrategy.GameWinningStrategy;
+import com.swapnilshah5889.tictactoe.strategies.gamewinningstrategy.OrderOneWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,16 @@ public class Game {
     private List<Move> moves;
     private GameStatus gameStatus;
     private int nextPlayerIndex;
+    private GameWinningStrategy gameWinningStrategy;
+    private Player winner;
+
+    public GameWinningStrategy getGameWinningStrategy() {
+        return gameWinningStrategy;
+    }
+
+    public void setGameWinningStrategy(GameWinningStrategy gameWinningStrategy) {
+        this.gameWinningStrategy = gameWinningStrategy;
+    }
 
     // Private constructor for builder design pattern
     private Game() {}
@@ -90,6 +102,13 @@ public class Game {
                 .get(move.getCell().getCol())
                 .setCellState(CellState.FILLED);
 
+        // Check if the player won
+        if(gameWinningStrategy.checkWinner(board, player, move.getCell())) {
+           gameStatus = GameStatus.ENDED;
+            winner = player;
+            return;
+        }
+
         // Cyclic increment of next player
         nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
 
@@ -130,6 +149,7 @@ public class Game {
             game.setPlayers(new ArrayList<>());
             game.setMoves(new ArrayList<>());
             game.setNextPlayerIndex(0);
+            game.setGameWinningStrategy(new OrderOneWinningStrategy(dimension));
             return game;
         }
     }
