@@ -1,9 +1,8 @@
 package com.swapnilshah5889.tictactoe;
 
-import com.swapnilshah5889.tictactoe.models.Bot;
-import com.swapnilshah5889.tictactoe.models.BotDifficultyLevel;
-import com.swapnilshah5889.tictactoe.models.Player;
-import com.swapnilshah5889.tictactoe.models.PlayerType;
+import com.swapnilshah5889.tictactoe.Exceptions.InvalidGameBuildingException;
+import com.swapnilshah5889.tictactoe.controllers.GameController;
+import com.swapnilshah5889.tictactoe.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,5 +44,15 @@ public class Main {
 
             players.add(new Bot(name, symbol.charAt(0), BotDifficultyLevel.EASY));
         }
+
+        // Start the game
+        GameController gameController = new GameController();
+        try {
+            Game game = gameController.createGame(dimension, players);
+
+        } catch (InvalidGameBuildingException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

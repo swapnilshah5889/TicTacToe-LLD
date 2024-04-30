@@ -59,6 +59,20 @@ public class Game {
         return new Builder();
     }
 
+    public void displayBoard() {
+        for(List<Cell> cellList : board.getBoard()) {
+            for(Cell c : cellList) {
+                if(c.getCellState() == CellState.EMPTY) {
+                    System.out.print("|   |");
+                }
+                else {
+                    System.out.print("| "+c.getPlayer().getSymbol()+" |");
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static class Builder {
         private int dimension;
         private List<Player> players;
