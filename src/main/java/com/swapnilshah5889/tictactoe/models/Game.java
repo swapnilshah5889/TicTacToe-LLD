@@ -127,7 +127,6 @@ public class Game {
         private int dimension;
         private List<Player> players;
 
-
         public Builder setDimension(int dimension) {
             this.dimension = dimension;
             return this;
@@ -154,7 +153,7 @@ public class Game {
             Game game = new Game();
             game.setGameStatus(GameStatus.IN_PROGRESS);
             game.setBoard(new Board(dimension));
-            game.setPlayers(new ArrayList<>());
+            game.setPlayers(players);
             game.setMoves(new ArrayList<>());
             game.setNextPlayerIndex(0);
             game.setGameWinningStrategy(new OrderOneWinningStrategy(dimension));

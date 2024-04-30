@@ -45,10 +45,14 @@ public class Main {
             players.add(new Bot(name, symbol.charAt(0), BotDifficultyLevel.EASY));
         }
 
+        System.out.println(players.size());
+
         // Start the game
         GameController gameController = new GameController();
         try {
             Game game = gameController.createGame(dimension, players);
+
+            System.out.println(game.getPlayers().size());
 
             // Keep getting user input until game ends
             while(game.getGameStatus().equals(GameStatus.IN_PROGRESS)) {
