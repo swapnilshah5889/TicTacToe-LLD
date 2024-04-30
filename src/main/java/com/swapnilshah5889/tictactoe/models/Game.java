@@ -16,6 +16,14 @@ public class Game {
     private GameWinningStrategy gameWinningStrategy;
     private Player winner;
 
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
+    }
+
     public GameWinningStrategy getGameWinningStrategy() {
         return gameWinningStrategy;
     }

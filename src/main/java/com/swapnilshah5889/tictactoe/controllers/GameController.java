@@ -32,4 +32,8 @@ public class GameController {
     public void makeNextMove(Game game) {
         game.makeNextMove();
     }
+
+    public String getWinner(Game game) {
+        return game.getWinner().getName() + " ("+game.getWinner().getSymbol()+")";
+    }
 }

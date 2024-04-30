@@ -15,7 +15,7 @@ public class Main {
         int dimension = sc.nextInt();
 
         System.out.println("Do you want a bot in the game? y/n");
-        String wantBots = sc.nextLine().trim().toLowerCase();
+        String wantBots = sc.next().trim().toLowerCase();
 
         List<Player> players = new ArrayList<>();
 
@@ -27,9 +27,9 @@ public class Main {
         // Insert the players
         for(int i=0; i<numberOfPlayers; i++) {
             System.out.println("What is the name of the player?");
-            String name = sc.nextLine();
+            String name = sc.next();
             System.out.println("What is the symbol of the player?");
-            String symbol = sc.nextLine();
+            String symbol = sc.next();
 
             players.add(new Player(name, symbol.charAt(0)));
 
@@ -38,9 +38,9 @@ public class Main {
         // Insert the bot
         if(wantBots.charAt(0) == 'y') {
             System.out.println("What is the name of the bot?");
-            String name = sc.nextLine();
+            String name = sc.next();
             System.out.println("What is the symbol of the bot?");
-            String symbol = sc.nextLine();
+            String symbol = sc.next();
 
             players.add(new Bot(name, symbol.charAt(0), BotDifficultyLevel.EASY));
         }
@@ -49,6 +49,29 @@ public class Main {
         GameController gameController = new GameController();
         try {
             Game game = gameController.createGame(dimension, players);
+
+            // Keep getting user input until game ends
+            while(game.getGameStatus().equals(GameStatus.IN_PROGRESS)) {
+                System.out.println("Current Board: ");
+                gameController.displayBoard(game);
+                System.out.println("Do you want to undo? (y/n): ");
+                String undo = sc.next().toLowerCase();
+
+                if(undo.charAt(0) == 'y') {
+                    gameController.undo();
+                }
+                else {
+                    gameController.makeNextMove(game);
+                }
+            }
+
+            System.out.println("Game has ended.");
+            if(game.getGameStatus().equals(GameStatus.ENDED)) {
+                System.out.println("Winner is: "+gameController.getWinner(game));
+            }
+            else {
+                System.out.println("It ended in draw!");
+            }
 
         } catch (InvalidGameBuildingException e) {
             throw new RuntimeException(e);
